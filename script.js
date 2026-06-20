@@ -8,8 +8,9 @@ if (tg) {
   } catch (e) {} 
 }
 
-const BOT_TOKEN = "YOUR_BOT_TOKEN_HERE";
-const CHAT_ID = "YOUR_CHAT_ID_HERE";
+// ====== TOKEN VA CHAT ID (ZAKAZLAR SHU YERGA BORADI) ======
+const BOT_TOKEN = "8223413777:AAHRVueVxlIYJFHe7DD7VNy1dSOo_8rWiLQ";
+const CHAT_ID = "@optom_unchi"; // Zakazlar shu contactga boradi
 
 // 28 ta mahsulot
 const products = [
@@ -295,7 +296,6 @@ const products = [
   }
 ];
 
-// Qolgan funksiyalar o'zgarmaydi
 function renderFeatured() {
   const grid = document.getElementById("featured-grid");
   grid.innerHTML = "";
