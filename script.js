@@ -205,49 +205,70 @@ function openTelegram() {
   window.open('https://t.me/optom_unchi', '_blank');
 }
 
-// ====== TELEFON RAQAMNI AVTOMATIK +998 QO'YISH ======
+// ====== KLAVIATURA OCHILGANDA NAV MENYUSINI YASHIRISH ======
 document.addEventListener('DOMContentLoaded', function() {
   renderFeatured();
   renderProducts();
   renderSelect();
   console.log("App ishga tushdi!");
   
+  // ====== TELEFON RAQAMNI AVTOMATIK +998 QO'YISH ======
   var phoneInput = document.getElementById('inp-phone');
-  
-  // Boshlang'ich qiymat
-  phoneInput.value = '+998 ';
-  
-  // Fokuslanganda kursorni oxiriga qo'yish
-  phoneInput.addEventListener('focus', function() {
-    if (this.value === '+998 ') {
-      this.setSelectionRange(this.value.length, this.value.length);
-    }
-  });
-  
-  // Faqat raqamlar va bo'sh joy kiritish
-  phoneInput.addEventListener('input', function() {
-    // Agar boshida +998 bo'lmasa, qo'yish
-    if (!this.value.startsWith('+998 ')) {
-      this.value = '+998 ' + this.value.replace(/[^0-9]/g, '');
-    }
+  if (phoneInput) {
+    // Boshlang'ich qiymat
+    phoneInput.value = '+998 ';
     
-    // Faqat raqamlar va bo'sh joy qoldirish
-    var numbers = this.value.replace('+998 ', '').replace(/[^0-9]/g, '');
-    
-    // 9 ta raqamdan oshmasligi
-    if (numbers.length > 9) {
-      numbers = numbers.slice(0, 9);
-    }
-    
-    // Raqamlarni formatlash: 2 3 2 2 (90 123 45 67)
-    var formatted = '';
-    for (var i = 0; i < numbers.length; i++) {
-      if (i === 2 || i === 5 || i === 7) {
-        formatted += ' ';
+    // Fokuslanganda kursorni oxiriga qo'yish
+    phoneInput.addEventListener('focus', function() {
+      if (this.value === '+998 ') {
+        this.setSelectionRange(this.value.length, this.value.length);
       }
-      formatted += numbers[i];
-    }
+    });
     
-    this.value = '+998 ' + formatted;
+    // Faqat raqamlar va bo'sh joy kiritish
+    phoneInput.addEventListener('input', function() {
+      // Agar boshida +998 bo'lmasa, qo'yish
+      if (!this.value.startsWith('+998 ')) {
+        this.value = '+998 ' + this.value.replace(/[^0-9]/g, '');
+      }
+      
+      // Faqat raqamlar va bo'sh joy qoldirish
+      var numbers = this.value.replace('+998 ', '').replace(/[^0-9]/g, '');
+      
+      // 9 ta raqamdan oshmasligi
+      if (numbers.length > 9) {
+        numbers = numbers.slice(0, 9);
+      }
+      
+      // Raqamlarni formatlash: 2 3 2 2 (90 123 45 67)
+      var formatted = '';
+      for (var i = 0; i < numbers.length; i++) {
+        if (i === 2 || i === 5 || i === 7) {
+          formatted += ' ';
+        }
+        formatted += numbers[i];
+      }
+      
+      this.value = '+998 ' + formatted;
+    });
+  }
+  
+  // ====== KLAVIATURA OCHILGANDA NAV MENYUSINI YASHIRISH ======
+  var inputs = document.querySelectorAll('input, textarea, select');
+  
+  inputs.forEach(function(input) {
+    // Fokuslanganda
+    input.addEventListener('focus', function() {
+      document.body.classList.add('keyboard-open');
+      // Sahifani biroz pastga surish
+      setTimeout(function() {
+        this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }.bind(this), 300);
+    });
+    
+    // Fokusdan chiqqanda
+    input.addEventListener('blur', function() {
+      document.body.classList.remove('keyboard-open');
+    });
   });
 });
