@@ -369,9 +369,11 @@ function orderProduct(productId) {
   goToPage("zakaz");
 }
 
+// ====== ASOSIY OZGARISH: submitOrder funksiyasi ======
 function submitOrder(e) {
   e.preventDefault();
   
+  // Malumotlarni olish
   const productId = document.getElementById("sel-product").value;
   const qty = document.getElementById("inp-qty").value.trim();
   const name = document.getElementById("inp-name").value.trim();
@@ -406,27 +408,29 @@ function submitOrder(e) {
   if (address.length < 5) showErr("err-address", "Manzilni aniq kiriting.");
   if (!valid) return;
 
+  // Mahsulot malumotini olish
   const product = products.find(p => p.id === productId);
   const productName = product ? product.name : productId;
   const productPrice = product ? product.price : "Malumot yoq";
   
-  // Zakaz matnini tayyorlash
-  const message = `YANGI ZAKAZ - Motabar Un Markazi
-
-Mahsulot: ${productName}
-Narxi: ${productPrice}
-Miqdor: ${qty}
-Ism: ${name}
-Telefon: ${phone}
-Manzil: ${address}
-
-Vaqt: ${new Date().toLocaleString('uz-UZ')}`;
-
-  // Telegram orqali yuborish (tayyor matn bilan)
-  const telegramUrl = `https://t.me/optom_unchi?text=${encodeURIComponent(message)}`;
-  window.open(telegramUrl, "_blank");
+  // ====== XABAR MATNI (TAYOR HOLD A) ======
+  var message = "";
+  message = message + "YANGI ZAKAZ - Motabar Un Markazi\n";
+  message = message + "-----------------------------\n";
+  message = message + "Mahsulot: " + productName + "\n";
+  message = message + "Narxi: " + productPrice + "\n";
+  message = message + "Miqdor: " + qty + "\n";
+  message = message + "Ism: " + name + "\n";
+  message = message + "Telefon: " + phone + "\n";
+  message = message + "Manzil: " + address + "\n";
+  message = message + "-----------------------------\n";
+  message = message + "Vaqt: " + new Date().toLocaleString('uz-UZ');
   
-  // Formani tozalash va success xabar
+  // ====== TELEGRAMGA YUBORISH ======
+  var url = "https://t.me/optom_unchi?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+  
+  // Formani tozalash
   document.getElementById("order-form").reset();
   showSuccess();
 }
