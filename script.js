@@ -105,6 +105,19 @@ function orderProduct(productId) {
   }, 300);
 }
 
+// ====== XATOLIKLARNI KO'RSATISH ======
+function showErr(id, msg) {
+  var el = document.getElementById(id);
+  el.textContent = msg;
+  el.classList.add("show");
+}
+
+function clearErr(id) {
+  var el = document.getElementById(id);
+  el.textContent = "";
+  el.classList.remove("show");
+}
+
 // ====== ASOSIY FUNKSIYA - ZAKAZ YUBORISH ======
 function submitOrder(e) {
   e.preventDefault();
@@ -112,23 +125,10 @@ function submitOrder(e) {
   var productId = document.getElementById("sel-product").value;
   var qty = document.getElementById("inp-qty").value.trim();
   var name = document.getElementById("inp-name").value.trim();
-  var phone = document.getElementById("inp-phone").value.trim();
+  var phoneRaw = document.getElementById("inp-phone").value.trim();
   var address = document.getElementById("inp-address").value.trim();
   
   var valid = true;
-
-  function showErr(id, msg) {
-    var el = document.getElementById(id);
-    el.textContent = msg;
-    el.classList.add("show");
-    valid = false;
-  }
-
-  function clearErr(id) {
-    var el = document.getElementById(id);
-    el.textContent = "";
-    el.classList.remove("show");
-  }
 
   clearErr("err-product");
   clearErr("err-qty");
@@ -136,11 +136,18 @@ function submitOrder(e) {
   clearErr("err-phone");
   clearErr("err-address");
 
-  if (!productId) showErr("err-product", "Iltimos, mahsulotni tanlang.");
-  if (!qty) showErr("err-qty", "Miqdorni kiriting.");
-  if (name.length < 2) showErr("err-name", "Ism-familiyani kiriting.");
-  if (phone.length < 7) showErr("err-phone", "Telefon raqamni kiriting.");
-  if (address.length < 5) showErr("err-address", "Manzilni aniq kiriting.");
+  if (!productId) { showErr("err-product", "Iltimos, mahsulotni tanlang."); valid = false; }
+  if (!qty) { showErr("err-qty", "Miqdorni kiriting."); valid = false; }
+  if (name.length < 2) { showErr("err-name", "Ism-familiyani kiriting."); valid = false; }
+  if (address.length < 5) { showErr("err-address", "Manzilni aniq kiriting."); valid = false; }
+  
+  // Telefon raqamni tekshirish
+  var phoneDigits = phoneRaw.replace(/[^0-9]/g, '');
+  if (phoneDigits.length < 9) {
+    showErr("err-phone", "Telefon raqamni to'liq kiriting (9 ta raqam)");
+    valid = false;
+  }
+  
   if (!valid) return;
 
   // Mahsulotni topish
@@ -154,7 +161,7 @@ function submitOrder(e) {
   var productName = product ? product.name : productId;
   var productPrice = product ? product.price : "Malumot yoq";
   
-  // ====== XABAR MATNI (TAYOR HOLD A) ======
+  // ====== XABAR MATNI ======
   var message = "";
   message = message + "YANGI ZAKAZ - Motabar Un Markazi\n";
   message = message + "-----------------------------\n";
@@ -162,17 +169,21 @@ function submitOrder(e) {
   message = message + "Narxi: " + productPrice + "\n";
   message = message + "Miqdor: " + qty + "\n";
   message = message + "Ism: " + name + "\n";
-  message = message + "Telefon: " + phone + "\n";
+  message = message + "Telefon: " + phoneRaw + "\n";
   message = message + "Manzil: " + address + "\n";
   message = message + "-----------------------------\n";
   message = message + "Vaqt: " + new Date().toLocaleString('uz-UZ');
   
-  // ====== TELEGRAMGA YUBORISH (AUTOMATIK) ======
+  // ====== TELEGRAMGA YUBORISH ======
   var url = "https://t.me/optom_unchi?text=" + encodeURIComponent(message);
   window.open(url, "_blank");
   
   // Formani tozalash
   document.getElementById("order-form").reset();
+  
+  // Telefonni qayta +998 qo'yish
+  document.getElementById("inp-phone").value = "+998 ";
+  
   showSuccess();
 }
 
@@ -194,9 +205,49 @@ function openTelegram() {
   window.open('https://t.me/optom_unchi', '_blank');
 }
 
+// ====== TELEFON RAQAMNI AVTOMATIK +998 QO'YISH ======
 document.addEventListener('DOMContentLoaded', function() {
   renderFeatured();
   renderProducts();
   renderSelect();
   console.log("App ishga tushdi!");
+  
+  var phoneInput = document.getElementById('inp-phone');
+  
+  // Boshlang'ich qiymat
+  phoneInput.value = '+998 ';
+  
+  // Fokuslanganda kursorni oxiriga qo'yish
+  phoneInput.addEventListener('focus', function() {
+    if (this.value === '+998 ') {
+      this.setSelectionRange(this.value.length, this.value.length);
+    }
+  });
+  
+  // Faqat raqamlar va bo'sh joy kiritish
+  phoneInput.addEventListener('input', function() {
+    // Agar boshida +998 bo'lmasa, qo'yish
+    if (!this.value.startsWith('+998 ')) {
+      this.value = '+998 ' + this.value.replace(/[^0-9]/g, '');
+    }
+    
+    // Faqat raqamlar va bo'sh joy qoldirish
+    var numbers = this.value.replace('+998 ', '').replace(/[^0-9]/g, '');
+    
+    // 9 ta raqamdan oshmasligi
+    if (numbers.length > 9) {
+      numbers = numbers.slice(0, 9);
+    }
+    
+    // Raqamlarni formatlash: 2 3 2 2 (90 123 45 67)
+    var formatted = '';
+    for (var i = 0; i < numbers.length; i++) {
+      if (i === 2 || i === 5 || i === 7) {
+        formatted += ' ';
+      }
+      formatted += numbers[i];
+    }
+    
+    this.value = '+998 ' + formatted;
+  });
 });
