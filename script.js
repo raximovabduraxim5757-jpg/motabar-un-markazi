@@ -8,9 +8,9 @@ if (tg) {
   } catch (e) {} 
 }
 
-// ====== TOKEN VA CHAT ID (ZAKAZLAR SHU YERGA BORADI) ======
+// ====== TOKEN VA CHAT ID ======
 const BOT_TOKEN = "8223413777:AAHRVueVxlIYJFHe7DD7VNy1dSOo_8rWiLQ";
-const CHAT_ID = "@optom_unchi"; // Zakazlar shu contactga boradi
+const CHAT_ID = "@optom_unchi";
 
 // 28 ta mahsulot
 const products = [
@@ -19,9 +19,9 @@ const products = [
     name:"MO'TABAR", 
     image:"images/motabar1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"295 000 so'm/50 kg", 
+    price:"295 000 som/50 kg", 
     nav:"1-navli un", 
-    advantage:"Xamir tez va yaxshi ko'tariladi Non va pishiriqlar yumshoq va xushbo'y chiqadi Tabiiy tarkibi bilan foydali va to'yimli", 
+    advantage:"Xamir tez va yaxshi kotariladi Non va pishiriqlar yumshoq va xushboy chiqadi Tabiiy tarkibi bilan foydali va toyimli", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -29,7 +29,7 @@ const products = [
     name:"MO'TABAR", 
     image:"images/motabar3.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"250 000 so'm/50 kg", 
+    price:"250 000 som/50 kg", 
     nav:"2-navli un", 
     advantage:"Mikroelementlar va tabiiy yog'larga boy Oziqlantiruvchi moddalarga boyligi sababli tanaga foydali Qandli diabet va ovqat hazm qilish muammolari uchun ajoyib", 
     bestFor:"Sog'lom ovqatlar va hokazo..." 
@@ -39,7 +39,7 @@ const products = [
     name:"QADIMGI-NAV", 
     image:"images/motabarq.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"130 000 so'm/50 kg", 
+    price:"130 000 som/50 kg", 
     nav:"Qadimgi-Nav", 
     advantage:"Oqsil va Vitaminlarga boy", 
     bestFor:"Diabet va Saxiri borlarga" 
@@ -49,9 +49,9 @@ const products = [
     name:"ADMIRAL", 
     image:"images/admiral1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"280 000 so'm/ 50 kg", 
+    price:"280 000 som/ 50 kg", 
     nav:"1-navli un", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -59,7 +59,7 @@ const products = [
     name:"ADMIRAL", 
     image:"images/admiral3.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"230 000 so'm/50 kg", 
+    price:"230 000 som/50 kg", 
     nav:"Kepak", 
     advantage:"Kaliy, temir, kaltsiyga boy", 
     bestFor:"Non, tort va hokazo..." 
@@ -69,9 +69,9 @@ const products = [
     name:"ADMIRAL", 
     image:"images/admiralv.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"388 000 so'm/50 kg", 
+    price:"388 000 som/50 kg", 
     nav:"Yem", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -79,9 +79,9 @@ const products = [
     name:"CHESTER", 
     image:"images/chester.jpg", 
     desc:"O'zbekiston ishlab chiqarilgan", 
-    price:"270 000 so'm/50 kg", 
+    price:"270 000 som/50 kg", 
     nav:"Elita", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -89,9 +89,9 @@ const products = [
     name:"CORNER", 
     image:"images/corner.jpg", 
     desc:"O'zbekiston ishlab chiqarilgan", 
-    price:"225 000 so'm/50 kg", 
+    price:"225 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -99,9 +99,9 @@ const products = [
     name:"DANI-NAN", 
     image:"images/daninan1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"150 000 so'm/25 kg", 
+    price:"150 000 som/25 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -109,9 +109,9 @@ const products = [
     name:"DANI-NAN", 
     image:"images/daninan50v.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"530 000 so'm/50 kg", 
+    price:"530 000 som/50 kg", 
     nav:"Premium", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -119,9 +119,9 @@ const products = [
     name:"DANI-NAN", 
     image:"images/daninan501.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"290 000 so'm/50 kg", 
+    price:"290 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -129,9 +129,9 @@ const products = [
     name:"DANI-NAN", 
     image:"images/daninan503.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"250 000 so'm/50 kg", 
+    price:"250 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -139,9 +139,9 @@ const products = [
     name:"DANI-NAN", 
     image:"images/daninanv.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"270 000 so'm/25 kg", 
+    price:"270 000 som/25 kg", 
     nav:"Premium", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -149,9 +149,9 @@ const products = [
     name:"ORDABASY", 
     image:"images/darkhan1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"300 000 so'm/50 kg", 
+    price:"300 000 som/50 kg", 
     nav:"Elita", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -159,9 +159,9 @@ const products = [
     name:"ORDABASY", 
     image:"images/darkhanv.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"390 000 so'm/50 kg", 
+    price:"390 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -169,9 +169,9 @@ const products = [
     name:"DIKHAN-BABA", 
     image:"images/dikhanbaba1.jpg", 
     desc:"O'zbekistonda ishlab chiqarilgan", 
-    price:"300 000 so'm/50 kg", 
+    price:"300 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -179,9 +179,9 @@ const products = [
     name:"DOBRIY MELNIK", 
     image:"images/dobriy.jpg", 
     desc:"O'zbekistonda ishlab chiqarilgan", 
-    price:"230 000 so'm/50 kg", 
+    price:"230 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -189,9 +189,9 @@ const products = [
     name:"KEREMET", 
     image:"images/keremet1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"280 000 so'm/50 kg", 
+    price:"280 000 som/50 kg", 
     nav:"Premium", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -199,9 +199,9 @@ const products = [
     name:"ELIT KOSTANAY", 
     image:"images/kostanay1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"250 000 so'm/50 kg", 
+    price:"250 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -209,9 +209,9 @@ const products = [
     name:"SALAMAT", 
     image:"images/salamat1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"300 000 so'm/50 kg", 
+    price:"300 000 som/50 kg", 
     nav:"Premium", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -219,9 +219,9 @@ const products = [
     name:"SALAMAT", 
     image:"images/salamatv.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"420 000 so'm/50 kg", 
+    price:"420 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -229,9 +229,9 @@ const products = [
     name:"TROYKA", 
     image:"images/troyka.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"240 000 so'm/50 kg", 
+    price:"240 000 som/50 kg", 
     nav:"Premium", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -239,9 +239,9 @@ const products = [
     name:"UNO", 
     image:"images/uno1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"290 000 so'm/50 kg", 
+    price:"290 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -249,9 +249,9 @@ const products = [
     name:"MO'TABAR", 
     image:"images/motabarv.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"425 000 so'm/50 kg", 
+    price:"425 000 som/50 kg", 
     nav:"Premium", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Hamma turdagi pishiriqlar" 
   },
   { 
@@ -259,9 +259,9 @@ const products = [
     name:"YARKO", 
     image:"images/yarko1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"275 000 so'm/50 kg", 
+    price:"275 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -269,9 +269,9 @@ const products = [
     name:"YARKO", 
     image:"images/yarkov.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"375 000 so'm/50 kg", 
+    price:"375 000 som/50 kg", 
     nav:"Premium", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Maxsus pishiriqlar" 
   },
   { 
@@ -279,9 +279,9 @@ const products = [
     name:"ZO'R", 
     image:"images/zor1.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"270 000 so'm/50 kg", 
+    price:"270 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi", 
+    advantage:"Xamir tez va yaxshi kotariladi", 
     bestFor:"Non, tort va hokazo..." 
   },
   { 
@@ -289,9 +289,9 @@ const products = [
     name:"ZO'R", 
     image:"images/zorv.jpg", 
     desc:"Qozog'istonda ishlab chiqarilgan", 
-    price:"370 000 so'm/50 kg", 
+    price:"370 000 som/50 kg", 
     nav:"1-nav", 
-    advantage:"Xamir tez va yaxshi ko'tariladi Non va pishiriqlar yumshoq va xushbo'y chiqadi Tabiiy tarkibi bilan foydali va to'yimli", 
+    advantage:"Xamir tez va yaxshi kotariladi Non va pishiriqlar yumshoq va xushboy chiqadi Tabiiy tarkibi bilan foydali va toyimli", 
     bestFor:"Non, tort va hokazo..." 
   }
 ];
@@ -323,7 +323,7 @@ function renderProducts() {
         <div class="product-card-emoji"><img src="${p.image}" alt="${p.name}" /></div>
         <div class="product-card-info">
           <h3>${p.name}</h3>
-          <div class="price-tag">💰 ${p.price}</div>
+          <div class="price-tag">${p.price}</div>
           <div style="font-size:12px;color:var(--muted-fg);margin-top:4px;">${p.nav}</div>
         </div>
       </div>
@@ -333,7 +333,7 @@ function renderProducts() {
           <div class="product-prop"><div class="dot">✓</div><span><strong>Afzalligi:</strong> ${p.advantage}</span></div>
           <div class="product-prop"><div class="dot">✓</div><span><strong>Nimalarga tavsiya etiladi:</strong> ${p.bestFor}</span></div>
         </div>
-        <button class="btn btn-full" onclick="orderProduct('${p.id}')">🛒 Zakaz berish</button>
+        <button class="btn btn-full" onclick="orderProduct('${p.id}')">Zakaz berish</button>
       </div>
     `;
     list.appendChild(el);
@@ -371,11 +371,13 @@ function orderProduct(productId) {
 
 function submitOrder(e) {
   e.preventDefault();
+  
   const productId = document.getElementById("sel-product").value;
   const qty = document.getElementById("inp-qty").value.trim();
   const name = document.getElementById("inp-name").value.trim();
   const phone = document.getElementById("inp-phone").value.trim();
   const address = document.getElementById("inp-address").value.trim();
+  
   let valid = true;
 
   function showErr(id, msg) {
@@ -400,72 +402,33 @@ function submitOrder(e) {
   if (!productId) showErr("err-product", "Iltimos, mahsulotni tanlang.");
   if (!qty) showErr("err-qty", "Miqdorni kiriting.");
   if (name.length < 2) showErr("err-name", "Ism-familiyani kiriting.");
-  if (phone.length < 7) showErr("err-phone", "To'g'ri telefon raqam kiriting.");
+  if (phone.length < 7) showErr("err-phone", "Togri telefon raqam kiriting.");
   if (address.length < 5) showErr("err-address", "Manzilni aniq kiriting.");
   if (!valid) return;
 
   const product = products.find(p => p.id === productId);
   const productName = product ? product.name : productId;
-  const productPrice = product ? product.price : "Ma'lumot yo'q";
+  const productPrice = product ? product.price : "Malumot yoq";
   
-  const message = `🌾 YANGI ZAKAZ — Mo'tabar Un Markazi\n\n📦 Mahsulot: ${productName}\n💰 Narxi: ${productPrice}\n📊 Miqdor: ${qty}\n👤 Ism: ${name}\n📞 Telefon: ${phone}\n📍 Manzil: ${address}\n\n📅 Vaqt: ${new Date().toLocaleString('uz-UZ')}`;
+  // Zakaz matnini tayyorlash
+  const message = `YANGI ZAKAZ - Motabar Un Markazi
 
-  const loading = document.getElementById("loading");
-  if (loading) loading.classList.add("show");
+Mahsulot: ${productName}
+Narxi: ${productPrice}
+Miqdor: ${qty}
+Ism: ${name}
+Telefon: ${phone}
+Manzil: ${address}
 
-  const submitBtn = document.querySelector("#order-form .btn-full");
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.textContent = "⏳ Yuborilmoqda...";
-  }
+Vaqt: ${new Date().toLocaleString('uz-UZ')}`;
 
-  sendToTelegram(message)
-    .then(() => {
-      document.getElementById("order-form").reset();
-      showSuccess();
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Zakazni Yuborish";
-      }
-      if (loading) loading.classList.remove("show");
-    })
-    .catch(() => {
-      window.open(`https://t.me/optom_unchi?text=${encodeURIComponent(message)}`, "_blank");
-      document.getElementById("order-form").reset();
-      showSuccess();
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Zakazni Yuborish";
-      }
-      if (loading) loading.classList.remove("show");
-    });
-}
-
-function sendToTelegram(message) {
-  return new Promise((resolve, reject) => {
-    if (BOT_TOKEN === "YOUR_BOT_TOKEN_HERE" || CHAT_ID === "YOUR_CHAT_ID_HERE") {
-      reject(new Error("Bot not configured"));
-      return;
-    }
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: message,
-        parse_mode: "HTML"
-      })
-    })
-    .then(r => r.json())
-    .then(d => {
-      if (d.ok) {
-        resolve(d);
-      } else {
-        reject(new Error(d.description));
-      }
-    })
-    .catch(reject);
-  });
+  // Telegram orqali yuborish (tayyor matn bilan)
+  const telegramUrl = `https://t.me/optom_unchi?text=${encodeURIComponent(message)}`;
+  window.open(telegramUrl, "_blank");
+  
+  // Formani tozalash va success xabar
+  document.getElementById("order-form").reset();
+  showSuccess();
 }
 
 function showSuccess() {
@@ -490,5 +453,5 @@ document.addEventListener('DOMContentLoaded', function() {
   renderFeatured();
   renderProducts();
   renderSelect();
-  console.log("✅ App ishga tushdi! 28 ta mahsulot yuklandi.");
+  console.log("App ishga tushdi! 28 ta mahsulot yuklandi.");
 });
