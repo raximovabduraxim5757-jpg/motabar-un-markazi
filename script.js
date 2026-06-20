@@ -1,3 +1,4 @@
+// Telegram Web App
 const tg = window.Telegram?.WebApp;
 if (tg) { 
   tg.ready(); 
@@ -8,13 +9,9 @@ if (tg) {
   } catch (e) {} 
 }
 
-// ====== TOKEN VA CHAT ID ======
-const BOT_TOKEN = "8223413777:AAHRVueVxlIYJFHe7DD7VNy1dSOo_8rWiLQ";
-const CHAT_ID = "@optom_unchi";
-
-// 28 ta mahsulot (qisqartirilgan, to'liq holda)
-const products = [
-  { id:"baland-navli", name:"MO'TABAR", image:"images/motabar1.jpg", desc:"Qozog'istonda ishlab chiqarilgan", price:"295 000 som/50 kg", nav:"1-navli un", advantage:"Xamir tez va yaxshi kotariladi", bestFor:"Non, tort va hokazo..." },
+// 28 ta mahsulot
+var products = [
+  { id:"baland-navli", name:"MO'TABAR", image:"images/motabar1.jpg", desc:"Qozog'istonda ishlab chiqarilgan", price:"295 000 som/50 kg", nav:"1-navli un", advantage:"Xamir tez va yaxshi kotariladi", bestFor:"Non, tort" },
   { id:"birinchi-nav", name:"MO'TABAR", image:"images/motabar3.jpg", desc:"Qozog'istonda ishlab chiqarilgan", price:"250 000 som/50 kg", nav:"2-navli un", advantage:"Mikroelementlar va tabiiy yog'larga boy", bestFor:"Sog'lom ovqatlar" },
   { id:"ikkinchi-nav", name:"QADIMGI-NAV", image:"images/motabarq.jpg", desc:"Qozog'istonda ishlab chiqarilgan", price:"130 000 som/50 kg", nav:"Qadimgi-Nav", advantage:"Oqsil va Vitaminlarga boy", bestFor:"Diabet va Saxiri borlarga" },
   { id:"semolina", name:"ADMIRAL", image:"images/admiral1.jpg", desc:"Qozog'istonda ishlab chiqarilgan", price:"280 000 som/50 kg", nav:"1-navli un", advantage:"Xamir tez va yaxshi kotariladi", bestFor:"Non, tort" },
@@ -45,68 +42,56 @@ const products = [
 ];
 
 function renderFeatured() {
-  const grid = document.getElementById("featured-grid");
+  var grid = document.getElementById("featured-grid");
   grid.innerHTML = "";
-  products.slice(0, 4).forEach(p => {
-    const el = document.createElement("div");
+  for (var i = 0; i < 4; i++) {
+    var p = products[i];
+    var el = document.createElement("div");
     el.className = "product-card-mini";
-    el.innerHTML = `
-      <img src="${p.image}" alt="${p.name}" />
-      <div class="card-name">${p.name}</div>
-      <div class="card-price">${p.price}</div>
-    `;
-    el.onclick = () => goToPage("mahsulotlar");
+    el.innerHTML = '<img src="' + p.image + '" alt="' + p.name + '" /><div class="card-name">' + p.name + '</div><div class="card-price">' + p.price + '</div>';
+    el.onclick = function() { goToPage("mahsulotlar"); };
     grid.appendChild(el);
-  });
+  }
 }
 
 function renderProducts() {
-  const list = document.getElementById("product-list");
+  var list = document.getElementById("product-list");
   list.innerHTML = "";
-  products.forEach(p => {
-    const el = document.createElement("div");
+  for (var i = 0; i < products.length; i++) {
+    var p = products[i];
+    var el = document.createElement("div");
     el.className = "product-card-full";
-    el.innerHTML = `
-      <div class="product-card-top">
-        <div class="product-card-emoji"><img src="${p.image}" alt="${p.name}" /></div>
-        <div class="product-card-info">
-          <h3>${p.name}</h3>
-          <div class="price-tag">${p.price}</div>
-          <div style="font-size:12px;color:var(--muted-fg);margin-top:4px;">${p.nav}</div>
-        </div>
-      </div>
-      <div class="product-card-body">
-        <p style="font-size:14px;font-weight:500;">${p.desc}</p>
-        <div class="product-props">
-          <div class="product-prop"><div class="dot">✓</div><span><strong>Afzalligi:</strong> ${p.advantage}</span></div>
-          <div class="product-prop"><div class="dot">✓</div><span><strong>Nimalarga tavsiya etiladi:</strong> ${p.bestFor}</span></div>
-        </div>
-        <button class="btn btn-full" onclick="orderProduct('${p.id}')">Zakaz berish</button>
-      </div>
-    `;
+    el.innerHTML = '<div class="product-card-top"><div class="product-card-emoji"><img src="' + p.image + '" alt="' + p.name + '" /></div><div class="product-card-info"><h3>' + p.name + '</h3><div class="price-tag">' + p.price + '</div><div style="font-size:12px;color:var(--muted-fg);margin-top:4px;">' + p.nav + '</div></div></div><div class="product-card-body"><p style="font-size:14px;font-weight:500;">' + p.desc + '</p><div class="product-props"><div class="product-prop"><div class="dot">✓</div><span><strong>Afzalligi:</strong> ' + p.advantage + '</span></div><div class="product-prop"><div class="dot">✓</div><span><strong>Nimalarga tavsiya etiladi:</strong> ' + p.bestFor + '</span></div></div><button class="btn btn-full" onclick="orderProduct(\'' + p.id + '\')">Zakaz berish</button></div>';
     list.appendChild(el);
-  });
+  }
   document.getElementById("product-count").textContent = products.length;
 }
 
 function renderSelect() {
-  const sel = document.getElementById("sel-product");
+  var sel = document.getElementById("sel-product");
   sel.innerHTML = '<option value="">Mahsulot tanlang...</option>';
-  products.forEach(p => {
-    const opt = document.createElement("option");
+  for (var i = 0; i < products.length; i++) {
+    var p = products[i];
+    var opt = document.createElement("option");
     opt.value = p.id;
     opt.textContent = p.name + " - " + p.price;
     sel.appendChild(opt);
-  });
+  }
 }
 
-let currentPage = "home";
+var currentPage = "home";
 
 function goToPage(page) {
-  document.querySelectorAll(".page").forEach(el => el.classList.remove("active"));
-  document.querySelectorAll(".nav-item").forEach(el => el.classList.remove("active"));
+  var pages = document.querySelectorAll(".page");
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].classList.remove("active");
+  }
+  var navs = document.querySelectorAll(".nav-item");
+  for (var i = 0; i < navs.length; i++) {
+    navs[i].classList.remove("active");
+  }
   document.getElementById("page-" + page).classList.add("active");
-  const navBtn = document.querySelector('.nav-item[data-page="' + page + '"]');
+  var navBtn = document.querySelector('.nav-item[data-page="' + page + '"]');
   if (navBtn) navBtn.classList.add("active");
   currentPage = page;
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -115,13 +100,12 @@ function goToPage(page) {
 function orderProduct(productId) {
   document.getElementById("sel-product").value = productId;
   goToPage("zakaz");
-  
-  // Scroll to form
   setTimeout(function() {
     document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 300);
 }
 
+// ====== ASOSIY FUNKSIYA - ZAKAZ YUBORISH ======
 function submitOrder(e) {
   e.preventDefault();
   
@@ -159,11 +143,20 @@ function submitOrder(e) {
   if (address.length < 5) showErr("err-address", "Manzilni aniq kiriting.");
   if (!valid) return;
 
-  var product = products.find(function(p) { return p.id === productId; });
+  // Mahsulotni topish
+  var product = null;
+  for (var i = 0; i < products.length; i++) {
+    if (products[i].id === productId) {
+      product = products[i];
+      break;
+    }
+  }
   var productName = product ? product.name : productId;
   var productPrice = product ? product.price : "Malumot yoq";
   
-  var message = "YANGI ZAKAZ - Motabar Un Markazi\n";
+  // ====== XABAR MATNI (TAYOR HOLD A) ======
+  var message = "";
+  message = message + "YANGI ZAKAZ - Motabar Un Markazi\n";
   message = message + "-----------------------------\n";
   message = message + "Mahsulot: " + productName + "\n";
   message = message + "Narxi: " + productPrice + "\n";
@@ -174,9 +167,11 @@ function submitOrder(e) {
   message = message + "-----------------------------\n";
   message = message + "Vaqt: " + new Date().toLocaleString('uz-UZ');
   
+  // ====== TELEGRAMGA YUBORISH (AUTOMATIK) ======
   var url = "https://t.me/optom_unchi?text=" + encodeURIComponent(message);
   window.open(url, "_blank");
   
+  // Formani tozalash
   document.getElementById("order-form").reset();
   showSuccess();
 }
