@@ -21,7 +21,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Tugmalar
     keyboard = [
-        [InlineKeyboardButton("🚀 Zakaz berish", web_app={"url": WEB_APP_URL})],
+        [InlineKeyboardButton("🛒 Zakaz berish", web_app={"url": WEB_APP_URL})],
         [InlineKeyboardButton("📞 Aloqa", url="https://t.me/optom_unchi")],
         [InlineKeyboardButton("📢 Kanal", url="https://t.me/motabar_andijon")]
     ]
@@ -30,7 +30,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Xabar
     await update.message.reply_text(
         f"👋 Assalomu alaykum, {first_name}!\n\n"
-        "🏪 Mo'tabar Un Markazi - Andijon viloyatida joylashgan, eng sifatli va arzon un mahsulotlarini yetkazib beruvchi va sotuvchi markaz sizning xizmatingizda!\n\n"
+        "🌾 Mo'tabar Un Markazi - Andijon viloyatida joylashgan, eng sifatli va arzon un mahsulotlarini yetkazib beruvchi va sotuvchi markaz sizning xizmatingizda!\n\n"
         "🛒 Pastdagi tugma orqali zakaz berishingiz mumkin.",
         reply_markup=reply_markup
     )
