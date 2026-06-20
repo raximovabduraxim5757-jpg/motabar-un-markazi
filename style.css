@@ -37,6 +37,7 @@ body {
   padding-bottom: 72px;
   position: relative;
   overflow-x: hidden;
+  transition: padding-bottom 0.3s ease;
 }
 
 header {
@@ -67,6 +68,17 @@ nav {
   display: flex;
   z-index: 100;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, display 0.3s ease;
+}
+
+/* Klaviatura ochilganda nav menyusini yashirish */
+body.keyboard-open nav {
+  transform: translateY(100%);
+  display: none !important;
+}
+
+body.keyboard-open #app {
+  padding-bottom: 0;
 }
 
 .nav-item {
@@ -576,7 +588,7 @@ nav {
   display: block;
 }
 
-/* iPhone tuzatish */
+/* iPhone va mobil tuzatish */
 input, textarea, select {
   font-size: 16px !important;
   -webkit-text-size-adjust: 100%;
@@ -603,4 +615,15 @@ input:focus, textarea:focus, select:focus {
 #inp-phone {
   letter-spacing: 1px;
   font-weight: 500;
+}
+
+/* Klaviatura ochilganda nav menyusi yashirish */
+@media screen and (max-width: 768px) {
+  body.keyboard-open nav {
+    display: none !important;
+  }
+  
+  body.keyboard-open #app {
+    padding-bottom: 0;
+  }
 }
