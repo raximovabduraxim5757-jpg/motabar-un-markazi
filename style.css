@@ -435,7 +435,7 @@ nav {
   height: 48px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 16px !important;
   color: var(--fg);
   background: var(--bg-light);
   outline: none;
@@ -576,16 +576,16 @@ nav {
   display: block;
 }
 
-/* iPhone uchun input tuzatish */
+/* iPhone tuzatish */
 input, textarea, select {
   font-size: 16px !important;
+  -webkit-text-size-adjust: 100%;
 }
 
 input:focus, textarea:focus, select:focus {
   outline: none;
 }
 
-/* Scroll bar */
 ::-webkit-scrollbar {
   width: 4px;
 }
