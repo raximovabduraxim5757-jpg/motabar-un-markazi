@@ -598,3 +598,9 @@ input:focus, textarea:focus, select:focus {
   background: var(--primary);
   border-radius: 4px;
 }
+
+/* Telefon raqam uchun */
+#inp-phone {
+  letter-spacing: 1px;
+  font-weight: 500;
+}
