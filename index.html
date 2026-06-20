@@ -2,7 +2,7 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
   <title>Mo'tabar Un Markazi</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="stylesheet" href="style.css" />
@@ -11,7 +11,6 @@
 
 <div id="app">
 
-  <!-- HEADER with LOGO -->
   <header>
     <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
       <img src="images/logo.jpg" alt="Mo'tabar Un Markazi" style="height:40px;width:auto;border-radius:8px;object-fit:cover;" />
@@ -19,10 +18,8 @@
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main>
 
-    <!-- HOME PAGE -->
     <div class="page active" id="page-home">
       <section class="hero">
         <div class="hero-bg"></div>
@@ -49,7 +46,6 @@
       </section>
     </div>
 
-    <!-- PRODUCTS PAGE -->
     <div class="page" id="page-mahsulotlar">
       <div class="page-header">
         <h2>Mahsulotlar katalogi</h2>
@@ -58,7 +54,6 @@
       <div class="product-list" id="product-list"></div>
     </div>
 
-    <!-- ORDER PAGE -->
     <div class="page" id="page-zakaz">
       <div class="page-header text-center">
         <div class="order-icon">🛒</div>
@@ -68,12 +63,7 @@
 
       <div class="card">
         <div class="success-message" id="success-message">
-          ✅ Zakaz muvaffaqiyatli yuborildi!
-        </div>
-
-        <div class="loading-spinner" id="loading">
-          <div class="spinner"></div>
-          <p style="margin-top:8px;font-size:13px;color:var(--muted-fg);">Yuborilmoqda...</p>
+          Zakaz muvaffaqiyatli yuborildi!
         </div>
 
         <form id="order-form" onsubmit="submitOrder(event)">
@@ -88,19 +78,19 @@
 
           <div class="field">
             <label for="inp-qty">Miqdor (kg yoki qop)</label>
-            <input type="text" id="inp-qty" placeholder="Masalan: 10 qop" required />
+            <input type="text" id="inp-qty" placeholder="Masalan: 10 qop" required autocomplete="off" />
             <span class="field-error" id="err-qty"></span>
           </div>
 
           <div class="field">
             <label for="inp-name">Ism-familiya</label>
-            <input type="text" id="inp-name" placeholder="Ismingizni kiriting" required />
+            <input type="text" id="inp-name" placeholder="Ismingizni kiriting" required autocomplete="off" />
             <span class="field-error" id="err-name"></span>
           </div>
 
           <div class="field">
             <label for="inp-phone">Telefon raqam</label>
-            <input type="tel" id="inp-phone" value="+998" required />
+            <input type="tel" id="inp-phone" placeholder="+998 90 123 45 67" required autocomplete="off" />
             <span class="field-error" id="err-phone"></span>
           </div>
 
@@ -115,7 +105,6 @@
       </div>
     </div>
 
-    <!-- CONTACT PAGE -->
     <div class="page" id="page-aloqa">
       <div class="page-header">
         <h2>Aloqa va Manzil</h2>
@@ -133,7 +122,6 @@
           </div>
         </div>
 
-        <!-- Telegram Operator -->
         <div class="contact-row">
           <span class="contact-icon">
             <img src="images/telegram.jpg" alt="Telegram" />
@@ -144,7 +132,6 @@
           </div>
         </div>
 
-        <!-- Telegram Kanal -->
         <div class="contact-row">
           <span class="contact-icon">
             <img src="images/telegram.jpg" alt="Telegram" />
@@ -155,7 +142,6 @@
           </div>
         </div>
 
-        <!-- Instagram -->
         <div class="contact-row">
           <span class="contact-icon">
             <img src="images/instagram.jpg" alt="Instagram" />
@@ -166,7 +152,6 @@
           </div>
         </div>
 
-        <!-- Manzil -->
         <div class="contact-row">
           <span class="contact-icon">📍</span>
           <div>
@@ -179,14 +164,12 @@
         </div>
       </div>
 
-      <!-- Tugmalar -->
       <div style="display:flex;flex-direction:column;gap:10px;margin:0 16px;">
         <button class="btn btn-full" onclick="openMap()" style="background:var(--primary);display:flex;align-items:center;justify-content:center;gap:8px;">
-          📍 Xaritada ko'rish
+          Xaritada korish
         </button>
-
         <button class="btn btn-full" onclick="openTelegram()" style="background:var(--primary);display:flex;align-items:center;justify-content:center;gap:8px;">
-          💬 Telegram orqali yozish
+          Telegram orqali yozish
         </button>
       </div>
 
@@ -198,7 +181,6 @@
 
   </main>
 
-  <!-- BOTTOM NAVIGATION -->
   <nav>
     <a class="nav-item active" onclick="goToPage('home')" data-page="home">
       <div class="nav-dot">
